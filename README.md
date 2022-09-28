@@ -1,5 +1,4 @@
-# optsim
- Tools for Optical Simulations
+# optsim: tools for Optical Simulations
 
 This started as a small library of optical propagation functions during the first Covid confinement, as a way to learn using Python. It covered the basic stuff: Fresnel propagation, Fraunhoffer, angular spectral method, etc. However, with time it started growing and I included more and more functions related to the work I was doing at that time in the lab. 
 
