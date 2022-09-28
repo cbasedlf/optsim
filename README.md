@@ -17,9 +17,13 @@ PIL
 Skimage
 Scipy
 
+# Function descriptions:
+I divided the library in 6 main groups: Optical propagation, Quality of life (plotting & saving images, representing complex fields, doing simple manipulations of images such as ROI selection, etc.), general optics simulation tools (build apertures, phase distributions of lenses, common image filters, compare images and measure quality), light field / wavefront sensing, neuronal activity simulation, and miscellaneous.
+For a more detailed description of each function, read function_description.md
 
+# Result examples:
 ## Example#1: Random phase mask used to simulate a thin scattering material:
 ![scattering_layer](https://user-images.githubusercontent.com/19323057/192787017-b31b0166-1f00-43bf-8e8b-f30189e0de98.png)
-# Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectral method, example in generate_speckle.py:
+## Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectral method, example in generate_speckle.py:
 ![speckle_evolution](https://user-images.githubusercontent.com/19323057/192783633-74506261-36b4-44ed-948d-72d7c3392964.gif)
 
