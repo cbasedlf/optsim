@@ -876,7 +876,7 @@ def show_field(Z, mode = 'light'):
     Z : input field
     mode : map minimum amplitude to black or white (light/dark modes)
     '''
-    fig,ax = plt.subplots(nrows = 1, ncols = 1, figsize = (5,5))
+    fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = (5,5))
     img = z2rgb(Z, theme = mode)
     im1 = ax.imshow(img, cmap = 'hsv', aspect = Z.shape[1]/Z.shape[0])    
     divider = make_axes_locatable(ax)
