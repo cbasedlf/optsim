@@ -10,5 +10,8 @@ I always worked on Spyder due to its similarities with Matlab (that's the softwa
 The library itself is relatively well commented, so anyone familiar with the physical phenomena in play should easily grasp what the code is doing. However, I will try to add a brief description of each function in this document. Also, I have added some small snippets of code with simple examples of the stuff you can do with these functions
 
 
-Speckle pattern evolving along the optical axis:
+# Example#1: Random phase mask used to simulate a thin scattering material:
+![scattering_layer](https://user-images.githubusercontent.com/19323057/192787017-b31b0166-1f00-43bf-8e8b-f30189e0de98.png)
+# Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectral method, example in generate_speckle.py:
 ![speckle_evolution](https://user-images.githubusercontent.com/19323057/192783633-74506261-36b4-44ed-948d-72d7c3392964.gif)
+
