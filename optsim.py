@@ -1883,7 +1883,7 @@ def gradient(img, delta):
     grad[1,0:-1,:] = np.diff(img, axis = 0) / delta
     return grad
 
-#%% Nonnegative Matrix Factorization experiments (neuronal activity, etc.)
+#%% Brain activity simulations (neuron spikes)
 
 def act_pulse(ratio_ud, dec_rate, fSize):
     '''
