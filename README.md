@@ -9,12 +9,7 @@ I always worked on Spyder due to its similarities with Matlab (that's the softwa
 The library itself is relatively well commented, so anyone familiar with the physical phenomena in play should easily grasp what the code is doing. However, I will try to add a brief description of each function in this document. Also, I have added some small snippets of code with simple examples of the stuff you can do with these functions
 
 It uses the following libraries:
-Numpy
-Matplotlib
-OpenCV
-PIL
-Skimage
-Scipy
+Numpy, Matplotlib, OpenCV, PIL, Skimage, Scipy
 
 Images are usually treated as real (complex when working with optical fields) 2D numpy arrays (i.e., real matrices). In the same spirit, phase objects (lenses, scattering media) and filters are also built as matrices. No Pytorch implementation for now (I never really had the need to use Pytorch with most of these functions), but should be relatively easy to do (send a message if you are interested!).
 
