@@ -9,20 +9,17 @@ I always worked on Spyder due to its similarities with Matlab (that's the softwa
 The library itself is relatively well commented, so anyone familiar with the physical phenomena in play should easily grasp what the code is doing. However, I will try to add a brief description of each function in this document. Also, I have added some small snippets of code with simple examples of the stuff you can do with these functions
 
 It uses the following libraries:
-Numpy
-Matplotlib
-OpenCV
-PIL
-Skimage
-Scipy
+Numpy, Matplotlib, OpenCV, PIL, Skimage, Scipy
 
-# Function descriptions:
-I divided the library in 6 main groups: Optical propagation, Quality of life (plotting & saving images, representing complex fields, doing simple manipulations of images such as ROI selection, etc.), general optics simulation tools (build apertures, phase distributions of lenses, common image filters, compare images and measure quality), light field / wavefront sensing, neuronal activity simulation, and miscellaneous.
+Images are usually treated as real (complex when working with optical fields) 2D numpy arrays (i.e., real matrices). In the same spirit, phase objects (lenses, scattering media) and filters are also built as matrices. No Pytorch implementation for now (I never really had the need to use Pytorch with most of these functions), but should be relatively easy to do (send a message if you are interested!).
+
+## Function descriptions:
+I divided the library into six main groups: Optical propagation, Quality of life (plotting & saving images, representing complex fields, doing simple manipulations of images such as ROI selection, etc.), general optics simulation tools (build apertures, phase distributions of lenses, common image filters, compare images and measure quality), light field / wavefront sensing, neuronal activity simulation, and miscellaneous.
 For a more detailed description of each function, read function_description.md and/or the comments on the code.
 
-# Result examples:
-## Example#1: Random phase mask used to simulate a thin scattering material:
+## Result examples:
+### Example#1: Random phase mask used to simulate a thin scattering material:
 ![scattering_layer](https://user-images.githubusercontent.com/19323057/192787017-b31b0166-1f00-43bf-8e8b-f30189e0de98.png)
-## Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectrum method, example in generate_speckle.py:
+### Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectrum method, example in generate_speckle.py:
 ![speckle_evolution](https://user-images.githubusercontent.com/19323057/192783633-74506261-36b4-44ed-948d-72d7c3392964.gif)
 
