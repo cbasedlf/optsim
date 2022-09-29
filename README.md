@@ -22,7 +22,7 @@ For a more detailed description of each function, read function_description.md a
 ![scattering_layer](https://user-images.githubusercontent.com/19323057/192787017-b31b0166-1f00-43bf-8e8b-f30189e0de98.png)
 ### Example#2: Speckle pattern evolving along the optical axis (you can see caustics at close distance from the diffuser at the start of the animation, and the speckle evolving as propagation occurs). Propagation made with the angular spectrum method, example in generate_speckle.py:
 ![speckle_evolution](https://user-images.githubusercontent.com/19323057/192783633-74506261-36b4-44ed-948d-72d7c3392964.gif)
-### Example#3: Speckle generation from point sources, example in generate_speckle.py:
+### Example#3: Speckle generation from a point source at different lateral positions (finite memory effect), example in generate_speckle.py:
 ![finite_lateral](https://user-images.githubusercontent.com/19323057/193068815-6b32177d-d0df-4987-a0ba-c6f462279e6d.gif)
-### Example#4: Speckle generation from plane wave illumination of a scattering layer, example in generate_speckle.py
+### Example#4: Speckle generation from plane wave illumination of a scattering layer (infinite memory effect), example in generate_speckle.py
 ![finite_lateral_tilt](https://user-images.githubusercontent.com/19323057/193068904-3212db15-11bb-4fd4-aadb-7b5a240a953d.gif)
