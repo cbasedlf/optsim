@@ -16,6 +16,8 @@ PIL
 Skimage
 Scipy
 
+Images are usually treated as real (complex when working with optical fields) 2D numpy arrays (i.e., real matrices). In the same spirit, phase objects (lenses, scattering media) and filters are also built as matrices.
+
 # Function descriptions:
 I divided the library in 6 main groups: Optical propagation, Quality of life (plotting & saving images, representing complex fields, doing simple manipulations of images such as ROI selection, etc.), general optics simulation tools (build apertures, phase distributions of lenses, common image filters, compare images and measure quality), light field / wavefront sensing, neuronal activity simulation, and miscellaneous.
 For a more detailed description of each function, read function_description.md and/or the comments on the code.
