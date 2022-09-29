@@ -89,7 +89,7 @@ field_sensor = []
 for idx in range(num_pos):
     field_sensor.append(ops.rs_ang_spec_prop(Uin = field_after[idx,:,:],
                             wvl = wvl, delta = pxsize, 
-                            z = scat_sensor_distance, padsize = 256))
+                            z = scat_sensor_distance, padsize = 512))
     pass
 print('done')
 field_sensor = np.asarray(field_sensor)
