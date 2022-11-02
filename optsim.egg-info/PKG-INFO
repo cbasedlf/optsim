@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: optsim
+Version: 0.0.1
+Summary: Tools for optical simulations
+Home-page: https://github.com/cbasedlf/optsim
+Author: F. Soldevila
+Author-email: soltfern@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
 # optsim: tools for optical simulations
 
 This started as a small library of optical propagation functions during the first Covid confinement, as a way to learn using Python. It covered the basic stuff: Fresnel propagation, Fraunhoffer, angular spectrum method, etc. However, with time it started growing and I included more and more functions related to the work I was doing at that time in the lab. 
