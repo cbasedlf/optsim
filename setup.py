@@ -21,6 +21,7 @@ setuptools.setup(
     install_requires=[
         "numpy",
         "matplotlib",
+        "opencv-python",
         "scikit-image",
         "pillow",
 		"scipy",
