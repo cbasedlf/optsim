@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="optsim",
-    version="0.0.1",
+    version="1.0.0",
     author="F. Soldevila",
     author_email="soltfern@gmail.com",
     description="Tools for optical simulations",
