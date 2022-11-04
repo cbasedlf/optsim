@@ -61,6 +61,8 @@ Crops a Region of Interest, centered at the central part of an image.
 Crops a Region of Interest, at any given position of an image.
 ### ROIclick
 Crops a Region of Interest, with an arbitrary size and at any position of the image. Selection of the ROI is done by using OpenCV, by showing the image on screen and selecting the ROI with the mouse.
+### ROIremove
+Removes a Region of Interest from an image, with an arbitrary size and at any position of the image. Selection of the ROI is done by using OpenCV, by showing the image on screen and selecting the ROI with the mouse. After selecting the first ROI, the function asks if you want to remove additional ROIs.
 # General optics simulation tools
 ### circAp
 Builds a circular aperture
