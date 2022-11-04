@@ -1007,14 +1007,53 @@ def ROIclick(img):
 
     '''
     temp_img = np.array(nparray2png(img))
+    temp_img_color = cv2.applyColorMap(temp_img, cv2.COLORMAP_VIRIDIS)
     cv2.namedWindow('image', flags = cv2.WINDOW_NORMAL | cv2.WINDOW_FREERATIO)
-    cv2.imshow('image', temp_img)
+    cv2.imshow('image', temp_img_color)
     showCrosshair = True
     fromCenter = False
-    roiData  = cv2.selectROI("image", temp_img, showCrosshair, fromCenter)
-    roi = temp_img[roiData[1] : roiData[1] + roiData[3],
+    roiData  = cv2.selectROI("image", temp_img_color, showCrosshair, fromCenter)
+    roi = img[roiData[1] : roiData[1] + roiData[3],
                    roiData[0] : roiData[0] + roiData[2]]
+    cv2.destroyWindow('image')
     return roi, roiData
+
+def ROIremove(img, fill = 0):
+    '''
+    ROIremove lets you remove parts of an image (numpy array)
+    Opens the image in a window, lets you select a ROI with the mouse, then 
+    you press ENTER and it shows you the image without that ROI. It asks if you
+    want to keep removing ROIs, or if its over. If that is the case, it returns
+    you your image without the ROIs.
+
+    Parameters
+    ----------
+    img : Input image (numpy array)
+    fill : constant to fill the ROI with. Zeros by default
+
+    Returns
+    -------
+    img_crop : Cropped image
+
+    '''
+    keep_cropping = True
+    showCrosshair = True
+    fromCenter = False
+    temp_img = np.copy(nparray2png(img))
+    temp_img_color = cv2.applyColorMap(temp_img, cv2.COLORMAP_VIRIDIS)
+    while keep_cropping:
+        cv2.namedWindow('image', flags = cv2.WINDOW_NORMAL | cv2.WINDOW_FREERATIO)
+        cv2.imshow('image', temp_img_color)
+        roiData  = cv2.selectROI("image", temp_img_color, showCrosshair, fromCenter)
+        temp_img_color[roiData[1] : roiData[1] + roiData[3],
+                 roiData[0] : roiData[0] + roiData[2]] = fill
+        img[roiData[1] : roiData[1] + roiData[3],
+                 roiData[0] : roiData[0] + roiData[2]] = fill
+        cv2.imshow('image', temp_img_color)
+        keep_cropping = input("Keep cropping? (Y/N): ") == 'Y'
+    cv2.destroyWindow('image')
+    return img
+    
 
 #%% Useful tools for general optics simulations
 ''' 
