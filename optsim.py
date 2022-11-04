@@ -1060,7 +1060,7 @@ def ROIremove(img, fill = 0):
         #plot image with the ROI set to zero, ask whether to keep going or stop
         temp_img_color = cv2.applyColorMap(temp_img2, cv2.COLORMAP_VIRIDIS)
         cv2.imshow('image', temp_img_color)
-        keep_cropping = input("Keep cropping? (Y/N): ") == 'Y'
+        keep_cropping = input("Keep cropping? (Y/N): ").casefold() == 'Y'.casefold()
     cv2.destroyWindow('image')#close window
     return temp_img
     
