@@ -1006,14 +1006,15 @@ def ROIclick(img):
         roiData[3]: row size of the ROI
 
     '''
-    temp_img = np.array(nparray2png(img))
-    temp_img_color = cv2.applyColorMap(temp_img, cv2.COLORMAP_VIRIDIS)
+    temp_img = np.copy(img)
+    temp_img2 = np.array(nparray2png(temp_img))
+    temp_img_color = cv2.applyColorMap(temp_img2, cv2.COLORMAP_VIRIDIS)
     cv2.namedWindow('image', flags = cv2.WINDOW_NORMAL | cv2.WINDOW_FREERATIO)
     cv2.imshow('image', temp_img_color)
     showCrosshair = True
     fromCenter = False
     roiData  = cv2.selectROI("image", temp_img_color, showCrosshair, fromCenter)
-    roi = img[roiData[1] : roiData[1] + roiData[3],
+    roi = temp_img[roiData[1] : roiData[1] + roiData[3],
                    roiData[0] : roiData[0] + roiData[2]]
     cv2.destroyWindow('image')
     return roi, roiData
@@ -1039,20 +1040,29 @@ def ROIremove(img, fill = 0):
     keep_cropping = True
     showCrosshair = True
     fromCenter = False
-    temp_img = np.copy(nparray2png(img))
-    temp_img_color = cv2.applyColorMap(temp_img, cv2.COLORMAP_VIRIDIS)
+    temp_img = np.copy(img)#create temporal copy of the image to manipulate
     while keep_cropping:
+        #convert so OpenCV can display
+        temp_img2 = np.array(nparray2png(temp_img))
+        #generate a copy with colormap for easier visualization
+        temp_img_color = cv2.applyColorMap(temp_img2, cv2.COLORMAP_VIRIDIS)
+        #create window
         cv2.namedWindow('image', flags = cv2.WINDOW_NORMAL | cv2.WINDOW_FREERATIO)
+        #plot image with the colormap
         cv2.imshow('image', temp_img_color)
+        #let user select the ROI
         roiData  = cv2.selectROI("image", temp_img_color, showCrosshair, fromCenter)
-        temp_img_color[roiData[1] : roiData[1] + roiData[3],
+        #set ROI to zero in both the image to display and the image to return
+        temp_img[roiData[1] : roiData[1] + roiData[3],
                  roiData[0] : roiData[0] + roiData[2]] = fill
-        img[roiData[1] : roiData[1] + roiData[3],
+        temp_img2[roiData[1] : roiData[1] + roiData[3],
                  roiData[0] : roiData[0] + roiData[2]] = fill
+        #plot image with the ROI set to zero, ask whether to keep going or stop
+        temp_img_color = cv2.applyColorMap(temp_img2, cv2.COLORMAP_VIRIDIS)
         cv2.imshow('image', temp_img_color)
         keep_cropping = input("Keep cropping? (Y/N): ") == 'Y'
-    cv2.destroyWindow('image')
-    return img
+    cv2.destroyWindow('image')#close window
+    return temp_img
     
 
 #%% Useful tools for general optics simulations
