@@ -1,7 +1,0 @@
-README.md
-setup.py
-optsim.egg-info/PKG-INFO
-optsim.egg-info/SOURCES.txt
-optsim.egg-info/dependency_links.txt
-optsim.egg-info/requires.txt
-optsim.egg-info/top_level.txt
