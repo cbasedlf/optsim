@@ -19,8 +19,8 @@ Of course, you do not need to create a new environment and you can install it in
 Once downloaded, just go to the directory where you saved the repo and run the pip install line.
 ```
 conda create --name optsim python=3.9
-
 conda activate optsim
+
 pip install -e .
 ```
 
