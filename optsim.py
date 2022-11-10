@@ -1,9 +1,11 @@
 """
 Collection of functions useful for general optical propagation simulations.
 Also generating speckle, and some light field / wavefront sensing routines.
-
-Feel free to use/modify anything you find here. If you find it useful, you
-can cite the repo in your projects.
+***************************************************************************
+cbasedlf/optsim is licensed under the
+                MIT License
+***************************************************************************
+If you found it useful, please cite the repo in your projects.
 F. Soldevila (@cbasedlf on Github). November 10th, 2022.
 """
 
