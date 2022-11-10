@@ -1,6 +1,10 @@
 """
 Collection of functions useful for general optical propagation simulations.
-Also generating speckle, and some light field / wavefront sensing routines
+Also generating speckle, and some light field / wavefront sensing routines.
+
+Feel free to use/modify anything you find here. If you find it useful, you
+can cite the repo in your projects.
+F. Soldevila (@cbasedlf on Github). November 10th, 2022.
 """
 
 #%% General use
@@ -20,7 +24,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 #%% Classes
 '''
 Honestly I do not know why I defined the scattering layer as a class. It was 
-probably my first week learnng python and I just wanted to try. You can define
+probably my first week learning python and I just wanted to try. You can define
 a function that returns a matrix with [thin_scat] and forget about the rest I
 guess.
 '''
