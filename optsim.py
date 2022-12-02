@@ -1109,6 +1109,31 @@ def circAp(totalSize, radius):
     
     return mask,r,theta
 
+def phaseRamp(px, elevation, angle):
+    '''
+    phaseRamp generates a ramp phase mask (useful to introduce tip/tilt into
+                                           a wavefront, for example)
+
+    Parameters
+    ----------
+    px : size of the image, in pixels
+    elevation : Total value of the phase ramp (times 2pi)
+    angle : orientation of the ramp, in radians (0 = horizontal, 
+                                                 pi/2 = vertical)
+
+    Returns
+    -------
+    ramp : ramp image
+
+    '''
+    #build ramp image
+    x = np.linspace(-1,1,px) #axes
+    x,y = np.meshgrid(x,-x) #axes
+    ramp = x*np.cos(angle) + y*np.sin(angle) #ramp profile
+    #build complex mask
+    phaseRamp = np.exp(1j*np.pi*ramp*elevation)
+    return phaseRamp
+
 def buildGauss(px, sigma, center, phi):
     """
     buildGauss generates a Gaussian profile in 2D. Formula from
