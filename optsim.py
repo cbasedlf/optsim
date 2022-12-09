@@ -11,10 +11,9 @@ F. Soldevila (@cbasedlf on Github). November 10th, 2022.
 
 #%% General use
 import numpy as np
-from numpy.fft import fft2 as fft2
-from numpy.fft import ifft2 as ifft2
-from numpy.fft import fftshift as fftshift
-from numpy.fft import ifftshift as ifftshift
+from numpy.fft import fft as fft, fft2 as fft2
+from numpy.fft import ifft as ifft, ifft2 as ifft2
+from numpy.fft import fftshift as fftshift, ifftshift as ifftshift
 import scipy as sc
 import cv2
 
@@ -219,6 +218,42 @@ def build_delta(xpos, ypos, pxsize, delta):
 ###############################################################################
 ###Optical propagation routines (Fresnel, Fraunhoffer, Rayleigh-Sommerfeld)####
 ###############################################################################
+def ft(g, delta):
+    '''
+    ft performs a discretized version of a Fourier Transform by using DFT
+
+    Parameters
+    ----------
+    g : input signal (sampled discretely) on the spatial(temporal) domain
+    delta : grid spacing spatial(temporal) domain. length(time) units
+
+    Returns
+    -------
+    G : Fourier Transform
+
+    '''
+    G = fftshift(fft(ifftshift(g)))*delta
+    return G
+
+def ift(G, delta_f):
+    '''
+    ift performs a discretized version of an Inverse Fourier Transform
+    by using DFT
+
+    Parameters
+    ----------
+    G : input signal (sampled discretely) on the frequency domain
+    delta_f : grid spacing frequency domain. 1/length(1/time) units
+
+    Returns
+    -------
+    g : Inverse Fourier Transform
+
+    '''
+    n = G.shape[0]
+    g = ifftshift(ifft(fftshift(G)))*(n*delta_f)
+    return g
+
 def ft2(g, delta):
     '''
     ft2 performs a discretized version of a Fourier Transform by using DFT
@@ -841,6 +876,31 @@ def plot_scatter2d(data, fig_size = False):
     fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = fig_size)
     ax.scatter(data[:,0],data[:,1])    
     ax.set_aspect(1)
+    plt.show()
+    return ax
+
+def plot_lineplot(data, fig_size = False,  xlabel = 'x', ylabel = 'y', 
+                  title = False, **plot_args):
+    '''
+    plot_lineplot plots a 2D line plot
+
+    Parameters
+    ----------
+    data : matrix to plot (row_number is number of points, colum is X and Y)
+    fig_size: size of the figure (inches)
+    **plot_args: kwargs for the plot options (color, markers, whatever u want)
+    Returns
+    -------
+    ax : ax object (so you have access to it in the workspace)
+    '''
+    if fig_size == False:
+        fig_size = (5,5)
+    fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = fig_size)
+    ax.plot(data[:,0], data[:,1], **plot_args)    
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    if title:
+        ax.set_title(title)
     plt.show()
     return ax
 
