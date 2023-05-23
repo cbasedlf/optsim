@@ -888,9 +888,13 @@ def plot_lineplot(data, fig_size = False,  xlabel = 'x', ylabel = 'y',
     ----------
     data : matrix to plot (row_number is number of points, colum is X and Y)
     fig_size: size of the figure (inches)
+    xlabel: name for X axis
+    ylabel: name for Y axis
+    title: plot title
     **plot_args: kwargs for the plot options (color, markers, whatever u want)
     Returns
     -------
+    fig: fig object (so you have access to it in the workspace)
     ax : ax object (so you have access to it in the workspace)
     '''
     if fig_size == False:
@@ -902,7 +906,45 @@ def plot_lineplot(data, fig_size = False,  xlabel = 'x', ylabel = 'y',
     if title:
         ax.set_title(title)
     plt.show()
-    return ax
+    return fig, ax
+
+def plot_stemplot(data, fig_size = False,  xlabel = 'x', ylabel = 'y', 
+                  title = False, linefmt = 'teal', markerfmt = 'D', 
+                  markersize = 3):
+    '''
+    plot_stemplot plots a 2D stem plot (each point has a line going vertically
+                                        to the horizontal axis)
+
+    Parameters
+    ----------
+    data : matrix to plot (row_number is number of points, colums are X and Y
+                           values)
+    fig_size: size of the figure (inches)
+    xlabel: name for X axis
+    ylabel: name for Y axis
+    title: plot title
+    linefmt: color of the stem lines
+    markerfmt: marker to use for the data points
+    markersize: marker size
+    Returns
+    -------
+    fig: fig object (so you have access to it in the workspace)
+    ax : ax object (so you have access to it in the workspace)
+    '''
+    if fig_size == False:
+        fig_size = (5,5)
+    fig, ax = plt.subplots(nrows = 1, ncols = 1, figsize = fig_size)
+    markerline, stemlines, baseline = ax.stem(data[:,0], data[:,1], 
+                                              linefmt = linefmt, 
+                                              markerfmt = markerfmt)
+    markerline.set_markerfacecolor('none')
+    markerline.set_markersize(markersize)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    if title:
+        ax.set_title(title)
+    plt.show()
+    return fig, ax
 
 def z2rgb(Z, theme = 'light'):
     '''Takes an array of complex numbers (z) and converts
