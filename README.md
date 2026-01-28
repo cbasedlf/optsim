@@ -14,7 +14,7 @@ Numpy, Matplotlib, OpenCV, PIL, Skimage, Scipy
 Images are usually treated as real (complex when working with optical fields) 2D numpy arrays (i.e., real matrices). In the same spirit, phase objects (lenses, scattering media) and filters are also built as matrices. No Pytorch implementation for now (I never really had the need to use Pytorch with most of these functions), but should be relatively easy to do (send a message if you are interested!).
 
 ## Install
-Clone the repo, download and use this code snippet to generate a conda environment called optsim and install both optsim and the needed libraries to run it (numpy,matplotlib,etc.).
+Clone the repo, download the files, and use this code snippet to generate a conda environment called optsim and install both optsim and the needed libraries to run it (numpy,matplotlib,etc.).
 Of course, you do not need to create a new environment and you can install it in the one you tipically use. 
 Once downloaded, just go to the directory where you saved the repo and run the pip install line.
 ```
